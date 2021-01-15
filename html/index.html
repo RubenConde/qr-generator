@@ -1,244 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>QR Code Generator</title>
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="author" content="" />
-		<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
-		<link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
-		<!--Replace with your tailwind.css once created-->
-		<link
-			href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css"
-			rel="stylesheet"
-			/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-			/>
-		<!--Tailwind Custom Forms - use to standardise form fields - https://github.com/tailwindcss/custom-forms-->
-		<style>
-			@import url('https://rsms.me/inter/inter.css');
-			html {
-			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-			'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-			'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-			}
-			.gradient {
-			background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
-			}
-			button,
-			.gradient2 {
-			background-color: #f39f86;
-			background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
-			}
-		</style>
-		<style>
-			.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
-}
-			#bg {
-			margin:0;
-			padding:0;
-			overflow:hidden;
-			background-color:transparent;
-			z-index: -99;
-			}
-			#bg section{
-			height:100%;
-			width:100%;
-			position:absolute ;  
-			}
-			.leaf{
-			opacity: 0.05;
-			position:absolute ;
-			width:100%;
-			height:100%;
-			top:0;
-			left:0;z-index: -99;
-			}
-			.leaf div{
-			left:0; 
-			position:absolute ;
-			display:block ;
-			}
-			.leaf div:nth-child(1){
-			left:30%; 
-			animation:fall 60s linear infinite ;
-			animation-delay:-2s;
-			}
-			.leaf div:nth-child(2){
-			left:70%; 
-			animation:fall 30s linear infinite ;
-			animation-delay:-4s;
-			}
-			.leaf div:nth-child(3){
-			left:10%; 
-			animation:fall 40s linear infinite ;
-			animation-delay:-7s;
-			}
-			.leaf div:nth-child(4){
-			left:50%; 
-			animation:fall 20s linear infinite ; 
-			animation-delay:-5s;
-			}
-			.leaf div:nth-child(5){
-			left:85%; 
-			animation:fall 35s linear infinite ;
-			animation-delay:-6s;
-			}
-			.leaf div:nth-child(6){
-			left:15%; 
-			animation:fall 45s linear infinite ;
-			animation-delay:-10s;
-			}
-			.leaf div:nth-child(7){
-			left:90%; 
-			animation:fall 65s linear infinite ;
-			animation-delay:-4s;
-			}
-			@keyframes fall{
-			0%{
-			top:-10%;
-			transform:translateX (20px) rotate(0deg);
-			}
-			20%{
-			transform:translateX (-20px) rotate(45deg);
-			}
-			40%{
-			transform:translateX (-20px) rotate(90deg);
-			}
-			60%{
-			transform:translateX (-20px) rotate(135deg); 
-			}
-			80%{
-			transform:translateX (-20px) rotate(180deg);
-			}
-			100%{
-			top:110%;
-			transform:translateX (-20px) rotate(225deg);
-			}
-			}
-			.leaf1{
-			transform: rotateX(180deg);
-			}
-			.leaf2{
-			transform: rotateY(180deg);
-			}
-		</style>
-	</head>
-	<body class="gradient leading-relaxed tracking-wide flex flex-col noselect">
-		<div  id="bg">
-			<section>
-				<div class="leaf">
-					<div>  <img src="/If%20You%20Can't%20Stand%20the%20Heat,%20Get%20Out%20of%20the%20Kitchen" class="lg:h-56 h-12"></img></div>
-					<div><img src="/Right%20Out%20of%20the%20Gate" class="lg:h-56 h-12"></img></div>
-					<div>  <img src="/Playing%20For%20Keeps" class="lg:h-56 h-12" ></img></div>
-					<div><img  src="/It's%20Not%20Brain%20Surgery" class="lg:h-56 h-12"></img></div>
-					<div> <img src="/Hit%20Below%20The%20Belt" class="lg:h-56 h-12"></img></div>
-					<div>   <img src="/Short%20End%20of%20the%20Stick" class="lg:h-56 h-12"></div>
-					<div><img src="/Eat%20My%20Hat" class="lg:h-56 h-12"></div>
-				</div>
-				<div class="leaf leaf1">
-					<div>  <img src="/Needle%20In%20a%20Haystack" class="lg:h-48 h-20"></img></div>
-					<div><img src="/Swinging%20For%20the%20Fences" class="lg:h-48 h-20"></img></div>
-					<div>  <img src="/Don't%20Count%20Your%20Chickens%20Before%20They%20Hatch" class="lg:h-48 h-20" ></img></div>
-					<div><img  src="/Ugly%20Duckling" class="lg:h-48 h-20"></img></div>
-					<div> <img src="/Cup%20Of%20Joe" class="lg:h-48 h-20"></img></div>
-					<div>   <img src="/Dropping%20Like%20Flies" class="lg:h-48 h-20"></div>
-					<div><img src="/Jack%20of%20All%20Trades%20Master%20of%20None" class="lg:h-48 h-20"></div>
-				</div>
-				<div class="leaf leaf2 hidde md:block">
-					<div>  <img src="/Hear,%20Hear" class="lg:h-36 h-32"></img></div>
-					<div><img src="/Poke%20Fun%20At" class="lg:h-36 h-32"></img></div>
-					<div>  <img src="/Down%20And%20Out" class="lg:h-36 h-32" ></img></div>
-					<div><img  src="/My%20Cup%20of%20Tea" class="lg:h-36 h-32"></img></div>
-					<div> <img src="/A%20Chip%20on%20Your%20Shoulder" class="lg:h-36 h-32"></img></div>
-					<div>   <img src="/Knock%20Your%20Socks%20Off" class="lg:h-36 h-32"></div>
-					<div><img src="/Talk%20the%20Talk" class="lg:h-36 h-32"></div>
-				</div>
-			</section>
-		</div>
-		<!--Nav-->
-		<nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
-			<div
-				class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6"
-				>
-				<div class="pl-4 flex items-center">
-					<a class="text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
-					<i class="fas fa-qrcode"></i>
-					QR Code Generator
-					</a>
-				</div>
-			</div>
-		</nav>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>QR Code Generator</title>
+      <meta name="description" content="QR code generator" />
+      <meta name="keywords" content="QR code generator app" />
+      <meta name="author" content="Rubén Conde" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/pwa-config/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/pwa-config/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="194x194" href="/pwa-config/favicon-194x194.png" />
+      <link
+         rel="icon"
+         type="image/png"
+         sizes="192x192"
+         href="/pwa-config/android-chrome-192x192.png"
+      />
+      <link rel="icon" type="image/png" sizes="16x16" href="/pwa-config/favicon-16x16.png" />
+      <link rel="manifest" href="/pwa-config/site.webmanifest.json" />
+      <link rel="mask-icon" href="/pwa-config/safari-pinned-tab.svg" color="#5bbad5" />
 
-		<div class="container mx-auto h-screen">
-			<div class="text-center px-3 lg:px-0">
-				<h1
-					id="main-text"
-					class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"
-					></h1>
-				<p
-					id="sub-text"
-					class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
-					></p>
-				<form id="form" onsubmit="return false"> 
-					<input
-						type="text"
-						class="mx-auto lg:mx-0 border-solid border w-full rounded px-3 py-2"
-						placeholder="Just write what you want in a QR code!"
-						id="text-input"
-						/>
-					<button
-						type="submit"
-						class="mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-52"
-						>
-					Get your QR Code
-					</button>
-				</form>
-			</div>
-			<div
-				class="flex flex-col items-center w-full mx-auto content-end lg:pt-28 pt-12"
-				id="result"
-				>
-				
-			</div>
-		</div>
-		
-		<!--Footer-->
-		<footer class="bg-white">
-			<div class="container mx-auto mt-8 px-8">
-				<div class="w-full flex flex-col md:flex-row py-6">
-					<div class="flex-1 mb-6">
-						<a
-							class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-							href="#"
-							>
-						<i class="fas fa-qrcode"></i>
-						QR Code Generator
-						</a>
-					</div>
-					<div class="flex-1">
-						<p class="uppercase font-extrabold text-gray-500 md:mb-6">Other Links</p>
-						<ul class="list-reset mb-6">
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>Comming soon...</a
-									>
-							</li>
-							<!-- <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+      <meta name="apple-mobile-web-app-title" content="QR Code Generator" />
+      <meta name="application-name" content="QR Code Generator" />
+      <meta name="msapplication-TileColor" content="#b91d47" />
+      <meta name="msapplication-TileImage" content="/pwa-config/mstile-144x144.png" />
+      <meta name="theme-color" content="#ffffff" />
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
+      <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
+      <link rel="stylesheet" href="css/index.css" />
+      <link
+         rel="stylesheet"
+         href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css"
+      />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+
+      <script>
+         if (navigator.serviceWorker.controller) {
+            console.log('Active service worker found');
+         } else {
+            navigator.serviceWorker
+               .register('js/serviceWorker.js', {
+                  scope: './js/',
+               })
+               .then(function (reg) {
+                  console.log('Service worker  registered');
+               });
+         }
+      </script>
+   </head>
+   <body class="gradient leading-relaxed tracking-wide flex flex-col noselect">
+      <div id="bg">
+         <section>
+            <div class="leaf">
+               <div>
+                  <img
+                     src="/If%20You%20Can't%20Stand%20the%20Heat,%20Get%20Out%20of%20the%20Kitchen"
+                     class="lg:h-56 h-12"
+                  />
+               </div>
+               <div><img src="/Right%20Out%20of%20the%20Gate" class="lg:h-56 h-12" /></div>
+               <div><img src="/Playing%20For%20Keeps" class="lg:h-56 h-12" /></div>
+               <div><img src="/It's%20Not%20Brain%20Surgery" class="lg:h-56 h-12" /></div>
+               <div><img src="/Hit%20Below%20The%20Belt" class="lg:h-56 h-12" /></div>
+               <div><img src="/Short%20End%20of%20the%20Stick" class="lg:h-56 h-12" /></div>
+               <div><img src="/Eat%20My%20Hat" class="lg:h-56 h-12" /></div>
+            </div>
+            <div class="leaf leaf1">
+               <div><img src="/Needle%20In%20a%20Haystack" class="lg:h-48 h-20" /></div>
+               <div><img src="/Swinging%20For%20the%20Fences" class="lg:h-48 h-20" /></div>
+               <div>
+                  <img
+                     src="/Don't%20Count%20Your%20Chickens%20Before%20They%20Hatch"
+                     class="lg:h-48 h-20"
+                  />
+               </div>
+               <div><img src="/Ugly%20Duckling" class="lg:h-48 h-20" /></div>
+               <div><img src="/Cup%20Of%20Joe" class="lg:h-48 h-20" /></div>
+               <div><img src="/Dropping%20Like%20Flies" class="lg:h-48 h-20" /></div>
+               <div>
+                  <img src="/Jack%20of%20All%20Trades%20Master%20of%20None" class="lg:h-48 h-20" />
+               </div>
+            </div>
+            <div class="leaf leaf2 hidde md:block">
+               <div><img src="/Hear,%20Hear" class="lg:h-36 h-32" /></div>
+               <div><img src="/Poke%20Fun%20At" class="lg:h-36 h-32" /></div>
+               <div><img src="/Down%20And%20Out" class="lg:h-36 h-32" /></div>
+               <div><img src="/My%20Cup%20of%20Tea" class="lg:h-36 h-32" /></div>
+               <div><img src="/A%20Chip%20on%20Your%20Shoulder" class="lg:h-36 h-32" /></div>
+               <div><img src="/Knock%20Your%20Socks%20Off" class="lg:h-36 h-32" /></div>
+               <div><img src="/Talk%20the%20Talk" class="lg:h-36 h-32" /></div>
+            </div>
+         </section>
+      </div>
+      <!--Nav-->
+      <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
+         <div
+            class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6"
+         >
+            <div class="pl-4 flex items-center">
+               <a class="text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
+                  <i class="fas fa-qrcode"></i>
+                  QR Code Generator
+               </a>
+            </div>
+         </div>
+      </nav>
+
+      <div class="container mx-auto h-screen">
+         <div class="text-center px-3 lg:px-0">
+            <h1
+               id="main-text"
+               class="my-4 text-2xl md:text-3xl lg:text-5xl font-black leading-tight"
+            ></h1>
+            <p
+               id="sub-text"
+               class="leading-normal text-gray-800 text-base md:text-xl lg:text-2xl mb-8"
+            ></p>
+            <form id="form" onsubmit="return false">
+               <input
+                  type="text"
+                  class="mx-auto lg:mx-0 border-solid border w-full rounded px-3 py-2"
+                  placeholder="Just write what you want in a QR code!"
+                  id="text-input"
+                  maxlength="200"
+               />
+               <button
+                  type="submit"
+                  class="mx-auto lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-52"
+               >
+                  Get your QR Code
+               </button>
+            </form>
+         </div>
+         <div
+            class="flex flex-col items-center w-full mx-auto content-end lg:pt-28 pt-12"
+            id="result"
+         ></div>
+      </div>
+
+      <!--Footer-->
+      <footer class="bg-white">
+         <div class="container mx-auto mt-8 px-8">
+            <div class="w-full flex flex-col md:flex-row py-6">
+               <div class="flex-1 mb-6">
+                  <a
+                     class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+                     href="#"
+                  >
+                     <i class="fas fa-qrcode"></i>
+                     QR Code Generator
+                  </a>
+               </div>
+               <div class="flex-1">
+                  <p class="uppercase font-extrabold text-gray-500 md:mb-6">Other Links</p>
+                  <ul class="list-reset mb-6">
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >Comming soon...</a
+                        >
+                     </li>
+                     <!-- <li class="mt-2 inline-block mr-2 md:block md:mr-0">
 								<a
 									href="#"
 									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
@@ -259,215 +188,86 @@
 									>Support</a
 									>
 							</li> -->
-						</ul>
-					</div>
-					
+                  </ul>
+               </div>
 
-					<div class="flex-1">
-						<p class="uppercase font-extrabold text-gray-500 md:mb-6">Social</p>
-						<ul class="list-reset mb-6">
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="https://rubn.xyz/iRaYs"
-									target="_"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>GitLab</a
-									>
-							</li>
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="https://rubn.xyz/TXzZs"
-									target="_"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>GitHub</a
-									>
-							</li>
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="https://rubn.xyz/GjsLz"
-									target="_"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>Linkedin</a
-									>
-							</li>
-						</ul>
-					</div>
-					<div class="flex-1">
-						<p class="uppercase font-extrabold text-gray-500 md:mb-6">Company</p>
-						<ul class="list-reset mb-6">
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="https://rubn.xyz/kk7G6" target="_"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>Blog</a
-									>
-							</li>
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="https://rubn.xyz/dw2yp"									target="_"
+               <div class="flex-1">
+                  <p class="uppercase font-extrabold text-gray-500 md:mb-6">Social</p>
+                  <ul class="list-reset mb-6">
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           href="https://rubn.xyz/iRaYs"
+                           target="_"
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >GitLab</a
+                        >
+                     </li>
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           href="https://rubn.xyz/TXzZs"
+                           target="_"
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >GitHub</a
+                        >
+                     </li>
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           href="https://rubn.xyz/GjsLz"
+                           target="_"
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >Linkedin</a
+                        >
+                     </li>
+                  </ul>
+               </div>
+               <div class="flex-1">
+                  <p class="uppercase font-extrabold text-gray-500 md:mb-6">Company</p>
+                  <ul class="list-reset mb-6">
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           href="https://rubn.xyz/kk7G6"
+                           target="_"
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >Blog</a
+                        >
+                     </li>
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           href="https://rubn.xyz/dw2yp"
+                           target="_"
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >Personal Site</a
+                        >
+                     </li>
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           href="mailto:rubencondemag96@outlook.com"
+                           target="_"
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >Contact</a
+                        >
+                     </li>
+                  </ul>
+               </div>
+               <div class="flex-1 content-center">
+                  <script
+                     type="text/javascript"
+                     src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+                     data-name="bmc-button"
+                     data-slug="rubenconde"
+                     data-color="#5F7FFF"
+                     data-emoji="☕"
+                     data-font="Bree"
+                     data-text="Buy me a coffee"
+                     data-outline-color="#000000"
+                     data-font-color="#ffffff"
+                     data-coffee-color="#FFDD00"
+                  ></script>
+               </div>
+            </div>
+         </div>
+      </footer>
 
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>Personal Site</a
-									>
-							</li>
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="mailto:rubencondemag96@outlook.com"
-									target="_"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>Contact</a
-									>
-							</li>
-						</ul>
-					</div>
-					<div class="flex-1 content-center">
-						<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="rubenconde" data-color="#5F7FFF" data-emoji="☕"  data-font="Bree" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-		<script>
-			const mainTextOptions = [
-			   'QR Code Gives Wealth And Beauty',
-			   "The Man From QR Code, He Says 'Yes' QR Code, There's No Better Way",
-			   'QR Code, Just The Best',
-			   'He Who Thinks QR Code Drinks QR Code',
-			   "Hope It's QR Code, It's QR Code, We Hope It's QR Code",
-			   'Feel The Raw Naked QR Code Of The Road',
-			   'A Smooth-Running QR Code Is A Relaxing Experience',
-			   'Women Love QR Code',
-			   'QR Code - Today And Tomorrow',
-			   'Nothing Is Faster Than QR Code',
-			   'QR Code The Highlife',
-			   'QR Code Soothes The Nerves',
-			   'QR Code Will Do Anything For You',
-			   'QR Code Reaching For The Stars',
-			   "I'd Do Anything For QR Code",
-			   'Beanz Meanz QR Code',
-			   'QR Code For A Brighter Shine',
-			   'Savour The Flavour Of QR Code',
-			   'Made In Scotland From QR Code',
-			   'Out Of The Strong Came Forth QR Code',
-			   'Get The QR Code Habit',
-			   'Challenge QR Code',
-			   'Snap! Crackle! QR Code!',
-			   'QR Code, The Secret Of Women',
-			   'No Finer QR Code Can Be Found',
-			   'I Liked The QR Code So Much, I Bought The Company!',
-			   "You Wouldn't Want To Miss QR Code",
-			   'The One And Only QR Code',
-			   'The Non-Sticky Sticky QR Code',
-			   'I Lost Weight With QR Code',
-			   "You've Got Questions",
-			   "We've Got QR Code",
-			   'Loves The QR Code You Hate',
-			   'See The Face You Love Light Up With QR Code',
-			   'QR Code Outshines The Rest',
-			   'Which Twin Has The QR Code? ',
-			   'QR Code Sees All, Knows All',
-			   'Reach Out And Touch QR Code',
-			   "QR Code Chews 'Em Up And Spits 'Em Out",
-			   'Once QR Code, Always QR Code',
-			   'The Age Of QR Code',
-			   'They Drink QR Code In The Congo',
-			   "Please Don't Squeeze The QR Code",
-			   'Prepare To Want QR Code',
-			   'You Can On A QR Code, Can Do!',
-			   'A Glass And A Half In Every QR Code',
-			   'QR Code, Making People Successful In A Changing World',
-			   'The President Buys QR Code',
-			   'Ask The Man From The QR Code',
-			   "It's My QR Code!",
-			];
-			const mainText = document.getElementById('main-text');
-			const mainTextOptionIndex = Math.floor(Math.random() * mainTextOptions.length);
-			mainText.innerText = mainTextOptions[mainTextOptionIndex];
-			
-			const subTextOptions = [
-			   'Just Like Qr Code Used To Make',
-			   'Qr Code Not Included',
-			   'Silly Rabbit, Qr Code Is For Kids',
-			   'Snap! Crackle! Qr Code!The Art Of Qr Code',
-			   'The Queen Of Qr Code',
-			   'Qr Code Shines Through',
-			   'When The Going Gets Tough, The Tough Get Qr Code',
-			   'Qr Code New And Improved',
-			   'Behold The Power Of Qr Code',
-			   'Qr Code - Enjoy The Difference',
-			   "I Liked The Qr Code So Much, I Bought The Company! Today's Qr Code, Since 1903",
-			   'We Do Qr Code Right',
-			   'Pure Qr Code',
-			   'Always After Me Qr Code',
-			   "Don't Get In The Way Of Qr Code",
-			   'Qr Code, I Want It All',
-			   'Funky Qr Code',
-			   'Qr Code - What More Could You Want?Qr Code When Only The Best Will Do',
-			   "Qr Code, Couldn't Ask For More",
-			   'Feel The Raw Naked Qr Code Of The Road',
-			   'Qr Code Quality You Can See',
-			   'Get Your Qr Code Here',
-			   'Bridge That Gap With Qr Code',
-			   'Think Once, Think Twice, Think Qr Code',
-			   "Sometimes You Feel Like A Qr Code, Sometimes You Don't",
-			   'Qr Code - Forget The Rest',
-			   'Give The Dog A Qr Code',
-			   "Bet You Can't Eat Qr Code",
-			   'Qr Code - Empowering People',
-			   'Qr Code Never Sleeps',
-			   'Ding-Dong! Qr Code Calling!For The Love Of Qr Code',
-			   'Qr Code Is Your Friend',
-			   "Let's Talk About Qr Code",
-			   "You'll Wonder Where The Yellow Went, When You Brush Your Teeth With Qr Code",
-			   'Say Qr Code',
-			   'I Was A Qr Code Weakling',
-			   'Power For Your Qr Code',
-			   'Gives A Meal Qr Code-Appeal',
-			   'Qr Code = The Best',
-			   "It's A Lot Less Qr Code Than A Hover",
-			   'Qr Code - When You Just Feel Like It',
-			   'The Qr Code Bars Are On Me!P-P-P-Pick Up A Qr Code',
-			];
-			const subText = document.getElementById('sub-text');
-			const subTextOptionIndex = Math.floor(Math.random() * subTextOptions.length);
-			subText.innerText = subTextOptions[subTextOptionIndex];
-			
-			const textInput = document.getElementById('text-input');
-			
-			const correctValue = (event) => {
-			   const resultContainer = document.getElementById('result');
-			   resultContainer.innerHTML = '';
-			
-			   const resultImg = document.createElement('img');
-			   resultImg.src = `/${textInput.value}`;
-			   resultImg.className =
-			      'object-scale-down object-center h-48 w-full animate__animated animate__fadeInUp';
-			
-			   const resultBtn = document.createElement('button');
-			   resultBtn.onclick = (event) => location.replace(`/${textInput.value}`);
-			   resultBtn.innerText = 'Open QR image';
-			   resultBtn.className =
-			      'object-center lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-52 animate__animated animate__fadeInUp';
-			   resultContainer.appendChild(resultImg);
-			   resultContainer.appendChild(resultBtn);
-			};
-			
-			const incorrectValue = (event) =>
-			   Swal.fire({
-			      title: 'Error!',
-			      text: 'Hey buddy! I need you to write something.',
-			      icon: 'error',
-			      confirmButtonText: 'Okay',
-			   });
-			
-			const form = document.getElementById('form');
-			form.addEventListener('submit', (event) => {
-				event.preventDefault();
-			   if (textInput.value === '') incorrectValue(event);
-			   else correctValue(event);
-			 
-			});
-		</script>
-	</body>
+      <script src="/js/index.js"></script>
+   </body>
 </html>
