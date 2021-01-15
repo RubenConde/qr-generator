@@ -4,9 +4,11 @@ var QRCode = require('qrcode');
 module.exports = async function (fastify, opts) {
    fastify.setNotFoundHandler(function (req, reply) {
       let possibleUrl = req.url.replace('/', '');
+
       const urlRegex = RegExp(
          '(?:(?:https?|ftp|file)://|www.|ftp.)(?:([-A-Z0-9+&@#/%=~_|$?!:,.]*)|[-A-Z0-9+&@#/%=~_|$?!:,.])*(?:([-A-Z0-9+&@#/%=~_|$?!:,.]*)|[A-Z0-9+&@#/%=~_|$])'
       );
+
       const isUrl = urlRegex.test(possibleUrl);
 
       if (isUrl) reply.redirect(`/?url=${possibleUrl}`);
@@ -25,8 +27,6 @@ module.exports = async function (fastify, opts) {
       else if (valueToQR === null) {
          return reply.sendFile('index.html'); // serving path.join(__dirname, 'html', 'myHtml.html') directly
       }
-
-      console.log(`${valueToQR}`);
 
       const qrBuffer = await QRCode.toBuffer(`${valueToQR}`, {
          errorCorrectionLevel: 'H',
