@@ -1,0 +1,36 @@
+{
+   "author": "",
+   "bugs": {
+      "url": "https://github.com/RubenConde/qr-generator/issues"
+   },
+   "dependencies": {
+      "fastify": "^3.0.0",
+      "fastify-autoload": "^3.3.1",
+      "fastify-cli": "^2.7.0",
+      "fastify-plugin": "^3.0.0",
+      "fastify-static": "^3.4.0",
+      "qrcode": "^1.4.4"
+   },
+   "description": "QR  generator with fast image response delivery",
+   "devDependencies": {
+      "tap": "^14.11.0"
+   },
+   "directories": {
+      "test": "test"
+   },
+   "homepage": "https://github.com/RubenConde/qr-generator#readme",
+   "keywords": [],
+   "license": "ISC",
+   "main": "app.js",
+   "name": "qr-generator",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/RubenConde/qr-generator.git"
+   },
+   "scripts": {
+      "dev": "fastify start -w -l info -P app.js",
+      "start": "fastify start -l info app.js",
+      "test": "tap test/**/*.test.js"
+   },
+   "version": "1.0.0"
+}
