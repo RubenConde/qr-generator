@@ -13,6 +13,7 @@ module.exports = async function (fastify, opts) {
    fastify.get('/:textToQR', handler);
 
    async function handler(request, reply) {
+      if (request.params.textToQR === 'serviceWorker.js') return reply.sendFile('serviceWorker.js');
       let valueToQR = null;
 
       if (Object.keys(request.query).length > 0) valueToQR = request.query.url;

@@ -18,3 +18,12 @@
     <modules runAllManagedModulesForAllRequests="true"/>
   </system.webServer>
 </configuration>
+<location path="/js/serviceWorker.js">
+    <system.webServer>
+        <httpProtocol>
+            <customHeaders>
+                <add name="Service-Worker-Allowed" value="/" />
+            </customHeaders>
+        </httpProtocol>
+    </system.webServer>
+</location>
