@@ -45,6 +45,11 @@
          "type": "image/png"
       },
       {
+         "sizes": "768x768",
+         "src": "/pwa/android-chrome-768x768.png",
+         "type": "image/png"
+      },
+      {
          "purpose": "maskable",
          "sizes": "72x72",
          "src": "/pwa/maskable_icon_x72.png",
@@ -72,6 +77,12 @@
          "purpose": "maskable",
          "sizes": "384x384",
          "src": "/pwa/maskable_icon_x384.png",
+         "type": "image/png"
+      },
+      {
+         "purpose": "maskable",
+         "sizes": "768x768",
+         "src": "/pwa/maskable_icon_x768.png",
          "type": "image/png"
       }
    ],
