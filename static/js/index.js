@@ -112,16 +112,24 @@ const correctValue = (event) => {
 
    const resultImg = document.createElement('img');
    resultImg.src = `/${textInput.value}`;
+   resultImg.alt = `/${textInput.value}`;
    resultImg.className =
       'object-scale-down object-center h-48 w-full animate__animated animate__fadeInUp';
 
    const resultBtn = document.createElement('button');
-   resultBtn.onclick = (event) => location.replace(`/${textInput.value}`);
+   resultBtn.onclick = (event) => (location.href = `/${textInput.value}`);
    resultBtn.innerText = 'Open QR image';
    resultBtn.className =
       'object-center lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-52 animate__animated animate__fadeInUp';
+
+   const codeImg = document.createElement('img');
+   codeImg.src = '/assets/code.svg';
+   codeImg.alt = 'Try it in your website!';
+   codeImg.className = 'w-3/4 m-20 hidden md:block animate__animated animate__fadeInUp';
+
    resultContainer.appendChild(resultImg);
    resultContainer.appendChild(resultBtn);
+   resultContainer.appendChild(codeImg);
 };
 
 const incorrectValue = (event) =>

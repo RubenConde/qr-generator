@@ -8,23 +8,18 @@
       <meta name="description" content="QR code generator" />
       <meta name="keywords" content="QR code generator app" />
       <meta name="author" content="Rubén Conde" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/pwa-config/apple-touch-icon.png" />
-      <link rel="icon" type="image/png" sizes="32x32" href="/pwa-config/favicon-32x32.png" />
-      <link rel="icon" type="image/png" sizes="194x194" href="/pwa-config/favicon-194x194.png" />
-      <link
-         rel="icon"
-         type="image/png"
-         sizes="192x192"
-         href="/pwa-config/android-chrome-192x192.png"
-      />
-      <link rel="icon" type="image/png" sizes="16x16" href="/pwa-config/favicon-16x16.png" />
-      <link rel="manifest" href="/pwa-config/site.webmanifest.json" />
-      <link rel="mask-icon" href="/pwa-config/safari-pinned-tab.svg" color="#5bbad5" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/pwa/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/pwa/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="194x194" href="/pwa/favicon-194x194.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/pwa/android-chrome-192x192.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/pwa/favicon-16x16.png" />
+      <link rel="manifest" href="/pwa/site.webmanifest" />
+      <link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5" />
 
       <meta name="apple-mobile-web-app-title" content="QR Code Generator" />
       <meta name="application-name" content="QR Code Generator" />
       <meta name="msapplication-TileColor" content="#b91d47" />
-      <meta name="msapplication-TileImage" content="/pwa-config/mstile-144x144.png" />
+      <meta name="msapplication-TileImage" content="/pwa/mstile-144x144.png" />
       <meta name="theme-color" content="#ffffff" />
 
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -46,7 +41,7 @@
             console.log('Active service worker found');
          } else {
             navigator.serviceWorker
-               .register('/serviceWorker.js', {
+               .register('/PNbx1G0T1yqRGYnhspC3POKCpPE1Hbcm', {
                   registrationStrategy: 'registerImmediately',
                   scope: '/',
                })
@@ -114,7 +109,7 @@
          </div>
       </nav>
 
-      <div class="container mx-auto h-screen">
+      <div class="container mx-auto h-screen flex flex-col mb-40">
          <div class="text-center px-3 lg:px-0">
             <h1
                id="main-text"
@@ -141,13 +136,13 @@
             </form>
          </div>
          <div
-            class="flex flex-col items-center w-full mx-auto content-end lg:pt-28 pt-12"
+            class="flex flex-col items-center justify-center w-full mx-auto content-end lg:p-28 p-12"
             id="result"
          ></div>
       </div>
 
       <!--Footer-->
-      <footer class="bg-white">
+      <footer class="bg-white my-auto">
          <div class="container mx-auto mt-8 px-8">
             <div class="w-full flex flex-col md:flex-row py-6">
                <div class="flex-1 mb-6">
@@ -164,31 +159,12 @@
                   <ul class="list-reset mb-6">
                      <li class="mt-2 inline-block mr-2 md:block md:mr-0">
                         <a
+                           href="https://rubn.xyz/fHupX"
+                           target="_"
                            class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-                           >Comming soon...</a
+                           >Source code</a
                         >
                      </li>
-                     <!-- <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="#"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>FAQ</a
-									>
-							</li>
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="#"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>Help</a
-									>
-							</li>
-							<li class="mt-2 inline-block mr-2 md:block md:mr-0">
-								<a
-									href="#"
-									class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-									>Support</a
-									>
-							</li> -->
                   </ul>
                </div>
 
@@ -234,18 +210,18 @@
                      </li>
                      <li class="mt-2 inline-block mr-2 md:block md:mr-0">
                         <a
-                           href="https://rubn.xyz/dw2yp"
-                           target="_"
-                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
-                           >Personal Site</a
-                        >
-                     </li>
-                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                        <a
                            href="mailto:rubencondemag96@outlook.com"
                            target="_"
                            class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
                            >Contact</a
+                        >
+                     </li>
+                     <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <a
+                           href="https://rubn.xyz/dw2yp"
+                           target="_"
+                           class="font-light no-underline hover:underline text-gray-800 hover:text-orange-500"
+                           >Personal Site</a
                         >
                      </li>
                   </ul>
