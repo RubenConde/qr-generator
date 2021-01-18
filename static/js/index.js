@@ -1,5 +1,5 @@
-const el = document.createElement('pwa-update');
-document.body.appendChild(el);
+const updateComponent = document.createElement('pwa-update');
+document.body.appendChild(updateComponent);
 
 /**
  * @description Titles to show as main text in the page.

@@ -1,51 +1,96 @@
 {
-   "name": "QR Code Generator",
-   "short_name": "QR Code Generator",
+   "background_color": "#ffffff",
+   "categories": ["qr", "code", "generator", "tool", "pwa", "app"],
+   "description": "QR Code Generator",
+   "display": "standalone",
    "icons": [
       {
-         "src": "/pwa/android-chrome-36x36.png",
          "sizes": "36x36",
+         "src": "/pwa/android-chrome-36x36.png",
          "type": "image/png"
       },
       {
-         "src": "/pwa/android-chrome-48x48.png",
          "sizes": "48x48",
+         "src": "/pwa/android-chrome-48x48.png",
          "type": "image/png"
       },
       {
-         "src": "/pwa/android-chrome-72x72.png",
          "sizes": "72x72",
+         "src": "/pwa/android-chrome-72x72.png",
          "type": "image/png"
       },
       {
-         "src": "/pwa/android-chrome-96x96.png",
          "sizes": "96x96",
+         "src": "/pwa/android-chrome-96x96.png",
          "type": "image/png"
       },
       {
-         "src": "/pwa/android-chrome-144x144.png",
          "sizes": "144x144",
+         "src": "/pwa/android-chrome-144x144.png",
          "type": "image/png"
       },
       {
-         "src": "/pwa/android-chrome-192x192.png",
          "sizes": "192x192",
+         "src": "/pwa/android-chrome-192x192.png",
          "type": "image/png"
       },
       {
-         "src": "/pwa/android-chrome-256x256.png",
          "sizes": "256x256",
+         "src": "/pwa/android-chrome-256x256.png",
          "type": "image/png"
       },
       {
-         "src": "/pwa/android-chrome-384x384.png",
          "sizes": "384x384",
+         "src": "/pwa/android-chrome-384x384.png",
+         "type": "image/png"
+      },
+      {
+         "purpose": "maskable",
+         "sizes": "72x72",
+         "src": "/pwa/maskable_icon_x72.png",
+         "type": "image/png"
+      },
+      {
+         "purpose": "maskable",
+         "sizes": "96x96",
+         "src": "/pwa/maskable_icon_x96.png",
+         "type": "image/png"
+      },
+      {
+         "purpose": "maskable",
+         "sizes": "144x144",
+         "src": "/pwa/maskable_icon_x144.png",
+         "type": "image/png"
+      },
+      {
+         "purpose": "maskable",
+         "sizes": "152x152",
+         "src": "/pwa/maskable_icon_x152.png",
+         "type": "image/png"
+      },
+      {
+         "purpose": "maskable",
+         "sizes": "384x384",
+         "src": "/pwa/maskable_icon_x384.png",
          "type": "image/png"
       }
    ],
-   "theme_color": "#ffffff",
-   "background_color": "#ffffff",
+   "lang": "English",
+   "name": "QR Code Generator",
+   "orientation": "portrait",
+   "screenshots": [
+      {
+         "sizes": "1280x800",
+         "src": "/pwa/screenshot-desktop.jpg",
+         "type": "image/png"
+      },
+      {
+         "sizes": "750x1334",
+         "src": "/pwa/screenshot-mobile.jpg",
+         "type": "image/png"
+      }
+   ],
+   "short_name": "QR Generator",
    "start_url": "/",
-   "display": "standalone",
-   "orientation": "portrait"
+   "theme_color": "#ffffff"
 }
