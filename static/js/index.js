@@ -159,8 +159,7 @@ const correctValue = () => {
    const resultImg = document.createElement('img');
    resultImg.src = `/${textInput.value}`;
    resultImg.alt = `/${textInput.value}`;
-   resultImg.className =
-      'object-scale-down object-center h-48 w-full animate__animated animate__fadeInUp';
+   resultImg.className = 'w-1/2 md:w-1/3 xl:w-1/4 animate__animated animate__fadeIn';
 
    /**
     * @description "Go to image" button to show in the container.
@@ -170,7 +169,7 @@ const correctValue = () => {
    resultBtn.onclick = () => (location.href = `/${textInput.value}`);
    resultBtn.innerText = 'Open QR image';
    resultBtn.className =
-      'object-center lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-52 animate__animated animate__fadeInUp';
+      'lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-52 animate__animated animate__fadeInUp';
 
    /**
     * @description Code example image to show in the container.
@@ -179,7 +178,8 @@ const correctValue = () => {
    const codeImg = document.createElement('img');
    codeImg.src = '/assets/code.svg';
    codeImg.alt = 'Try it in your website!';
-   codeImg.className = 'w-3/4 m-20 hidden md:block animate__animated animate__fadeInUp';
+   codeImg.className =
+      'w-full lg:w-3/4 xl:w-3/5 md:mt-20 xl:mt-10 hidden md:block animate__animated animate__fadeIn';
 
    // Adding all elements in the container
    resultContainer.appendChild(resultImg);
