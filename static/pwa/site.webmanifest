@@ -1,8 +1,9 @@
 {
    "background_color": "#ffffff",
-   "categories": ["qr", "code", "generator", "tool", "pwa", "app"],
+   "categories": ["utilities", "personalization", "productivity"],
    "description": "QR Code Generator",
    "display": "standalone",
+   "features": ["Cross Platform", "fast", "simple", "cool"],
    "icons": [
       {
          "sizes": "36x36",
@@ -89,6 +90,13 @@
    "lang": "English",
    "name": "QR Code Generator",
    "orientation": "portrait",
+   "prefer_related_applications": true,
+   "related_applications": [
+      {
+         "platform": "play",
+         "id": "com.android.chrome"
+      }
+   ],
    "screenshots": [
       {
          "sizes": "1280x800",
@@ -102,6 +110,20 @@
       }
    ],
    "short_name": "QR Generator",
+   "shortcuts": [
+      {
+         "description": "Generate a new QR code from a text",
+         "icons": [
+            {
+               "sizes": "152x152",
+               "src": "/pwa/maskable_icon_x152.png"
+            }
+         ],
+         "name": "Generate QR Code",
+         "short_name": "Generate QR",
+         "url": "/"
+      }
+   ],
    "start_url": "/",
    "theme_color": "#ffffff"
 }

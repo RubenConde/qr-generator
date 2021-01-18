@@ -1,4 +1,5 @@
 const updateComponent = document.createElement('pwa-update');
+updateComponent.swpath = 'PNbx1G0T1yqRGYnhspC3POKCpPE1Hbcm'
 document.body.appendChild(updateComponent);
 
 /**
