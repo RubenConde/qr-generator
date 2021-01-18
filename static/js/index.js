@@ -1,5 +1,5 @@
 const updateComponent = document.createElement('pwa-update');
-updateComponent.swpath = 'PNbx1G0T1yqRGYnhspC3POKCpPE1Hbcm'
+updateComponent.swpath = 'PNbx1G0T1yqRGYnhspC3POKCpPE1Hbcm';
 document.body.appendChild(updateComponent);
 
 /**
@@ -210,4 +210,37 @@ form.addEventListener('submit', (event) => {
    event.preventDefault();
    if (textInput.value === '') incorrectValue();
    else correctValue();
+});
+
+let deferredPrompt; // Allows to show the install prompt
+const installButton = document.getElementById('install_button');
+
+function installApp() {
+   // Show the prompt
+   deferredPrompt.prompt();
+   installButton.disabled = true;
+
+   // Wait for the user to respond to the prompt
+   deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+         installButton.hidden = true;
+      }
+      installButton.disabled = false;
+      deferredPrompt = null;
+   });
+}
+// Event when launched installed
+window.addEventListener('appinstalled', (evt) => {
+   console.log('appinstalled fired', evt);
+});
+
+window.addEventListener('beforeinstallprompt', (e) => {
+   // Prevent Chrome 76 and earlier from automatically showing a prompt
+   e.preventDefault();
+   // Stash the event so it can be triggered later.
+   deferredPrompt = e;
+   // Show the install button
+   installButton.hidden = false;
+   // Button click listener
+   installButton.addEventListener('click', installApp);
 });
