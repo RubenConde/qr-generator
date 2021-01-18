@@ -1,5 +1,10 @@
 const el = document.createElement('pwa-update');
 document.body.appendChild(el);
+
+/**
+ * @description Titles to show as main text in the page.
+ * @type {string[]}
+ */
 const mainTextOptions = [
    'QR Code Gives Wealth And Beauty',
    "The Man From QR Code, He Says 'Yes' QR Code, There's No Better Way",
@@ -52,10 +57,22 @@ const mainTextOptions = [
    'Ask The Man From The QR Code',
    "It's My QR Code!",
 ];
+/**
+ * @description Container where to show the main title.
+ * @type {HTMLElement}
+ */
 const mainText = document.getElementById('main-text');
+/**
+ * @description Index of the title to show.
+ * @type {number}
+ */
 const mainTextOptionIndex = Math.floor(Math.random() * mainTextOptions.length);
 mainText.innerText = mainTextOptions[mainTextOptionIndex];
 
+/**
+ * @description Titles to show as secondary text in the page.
+ * @type {string[]}
+ */
 const subTextOptions = [
    'Just Like Qr Code Used To Make',
    'Qr Code Not Included',
@@ -100,39 +117,81 @@ const subTextOptions = [
    'Qr Code - When You Just Feel Like It',
    'The Qr Code Bars Are On Me!P-P-P-Pick Up A Qr Code',
 ];
+/**
+ * @description Container where to show the main title.
+ * @type {HTMLElement}
+ */
 const subText = document.getElementById('sub-text');
+/**
+ * @description Index of the title to show.
+ * @type {number}
+ */
 const subTextOptionIndex = Math.floor(Math.random() * subTextOptions.length);
 subText.innerText = subTextOptions[subTextOptionIndex];
 
+/**
+ * @description Input where to write the QR code value.
+ */
 const textInput = document.getElementById('text-input');
 
-const correctValue = (event) => {
+/**
+ * @description Function to use when the value of the text input is correct.
+ * It generates te QR code from the API and shows it like an image in the site.
+ * Adds a button to go directly to the image.
+ * * In mobile it show the PWA install button.
+ * * In desktop it show an example image with code to use it like an API
+ *
+ */
+const correctValue = () => {
+   /**
+    * @description Container where to show the QR code and the buttons.
+    * @type {HTMLElement}
+    */
    const resultContainer = document.getElementById('result');
+   // Container is cleared.
    resultContainer.innerHTML = '';
 
+   /**
+    * @description QR code image to show in the container.
+    * @type {HTMLImageElement}
+    */
    const resultImg = document.createElement('img');
    resultImg.src = `/${textInput.value}`;
    resultImg.alt = `/${textInput.value}`;
    resultImg.className =
       'object-scale-down object-center h-48 w-full animate__animated animate__fadeInUp';
 
+   /**
+    * @description "Go to image" button to show in the container.
+    * @type {HTMLButtonElement}
+    */
    const resultBtn = document.createElement('button');
-   resultBtn.onclick = (event) => (location.href = `/${textInput.value}`);
+   resultBtn.onclick = () => (location.href = `/${textInput.value}`);
    resultBtn.innerText = 'Open QR image';
    resultBtn.className =
       'object-center lg:mx-0 text-gray-800 font-extrabold rounded my-2 md:my-6 py-4 px-8 shadow-lg w-52 animate__animated animate__fadeInUp';
 
+   /**
+    * @description Code example image to show in the container.
+    * @type {HTMLImageElement}
+    */
    const codeImg = document.createElement('img');
    codeImg.src = '/assets/code.svg';
    codeImg.alt = 'Try it in your website!';
    codeImg.className = 'w-3/4 m-20 hidden md:block animate__animated animate__fadeInUp';
 
+   // Adding all elements in the container
    resultContainer.appendChild(resultImg);
    resultContainer.appendChild(resultBtn);
    resultContainer.appendChild(codeImg);
 };
 
-const incorrectValue = (event) =>
+/**
+ * @description Function to use when the value of the text input is incorrect.
+ * Shows a message to say to the user to write something in the input.
+ *
+ */
+const incorrectValue = () =>
    Swal.fire({
       title: 'Error!',
       text: 'Hey buddy! I need you to write something.',
@@ -140,9 +199,14 @@ const incorrectValue = (event) =>
       confirmButtonText: 'Okay',
    });
 
+/**
+ * @description Form element where to realize the actions in the page.
+ * @type {HTMLElement}
+ */
 const form = document.getElementById('form');
 form.addEventListener('submit', (event) => {
+   // Form submit refresh stopped.
    event.preventDefault();
-   if (textInput.value === '') incorrectValue(event);
-   else correctValue(event);
+   if (textInput.value === '') incorrectValue();
+   else correctValue();
 });
