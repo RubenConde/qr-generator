@@ -15,7 +15,6 @@
       <link rel="icon" type="image/png" sizes="16x16" href="/pwa/favicon-16x16.png" />
       <link rel="manifest" href="/pwa/site.webmanifest" />
       <link rel="mask-icon" href="/pwa/safari-pinned-tab.svg" color="#5bbad5" />
-
       <meta name="apple-mobile-web-app-title" content="QR Code Generator" />
       <meta name="application-name" content="QR Code Generator" />
       <meta name="msapplication-TileColor" content="#b91d47" />
@@ -24,6 +23,8 @@
 
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
       <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate"></script>
+
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css" />
       <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
       <link rel="stylesheet" href="css/index.css" />
@@ -52,6 +53,7 @@
       </script>
    </head>
    <body class="gradient leading-relaxed tracking-wide flex flex-col noselect">
+      <!-- QR Codes background -->
       <div id="bg">
          <section>
             <div class="leaf">
@@ -95,7 +97,8 @@
             </div>
          </section>
       </div>
-      <!--Nav-->
+
+      <!-- Navigation bar -->
       <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
          <div
             class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6"
@@ -109,6 +112,7 @@
          </div>
       </nav>
 
+      <!-- Main container -->
       <div class="container mx-auto h-screen flex flex-col mb-40">
          <div class="text-center px-3 lg:px-0">
             <h1
@@ -141,14 +145,18 @@
          ></div>
       </div>
 
-      <!--Footer-->
-      <footer class="bg-white my-auto">
+      <!-- Footer -->
+      <footer class="bg-white">
+         <button id="install_button" class="sm:w-full p-5" hidden>
+            If you liked it, you can install it directly to your device. By just clicking this
+            button.
+         </button>
+
          <div class="container mx-auto mt-8 px-8">
             <div class="w-full flex flex-col md:flex-row py-6">
                <div class="flex-1 mb-6">
                   <a
                      class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                     href="#"
                   >
                      <i class="fas fa-qrcode"></i>
                      QR Code Generator
@@ -227,19 +235,9 @@
                   </ul>
                </div>
                <div class="flex-1 content-center">
-                  <script
-                     type="text/javascript"
-                     src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-                     data-name="bmc-button"
-                     data-slug="rubenconde"
-                     data-color="#5F7FFF"
-                     data-emoji="☕"
-                     data-font="Bree"
-                     data-text="Buy me a coffee"
-                     data-outline-color="#000000"
-                     data-font-color="#ffffff"
-                     data-coffee-color="#FFDD00"
-                  ></script>
+                  <a href="https://rubn.xyz/8guTe" target="_"
+                     ><img src="/assets/coffee-button.png"
+                  /></a>
                </div>
             </div>
          </div>
