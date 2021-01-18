@@ -90,7 +90,7 @@
    "lang": "English",
    "name": "QR Code Generator",
    "orientation": "portrait",
-   "prefer_related_applications": true,
+   "prefer_related_applications": false,
    "related_applications": [
       {
          "platform": "play",

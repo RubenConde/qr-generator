@@ -231,7 +231,7 @@ function installApp() {
 }
 // Event when launched installed
 window.addEventListener('appinstalled', (evt) => {
-   console.log('appinstalled fired', evt);
+   console.log('INSTALL: Success', evt);
 });
 
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -243,4 +243,31 @@ window.addEventListener('beforeinstallprompt', (e) => {
    installButton.hidden = false;
    // Button click listener
    installButton.addEventListener('click', installApp);
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+   installButton.hidden = false;
+   let displayMode = 'browser tab';
+   if (navigator.standalone) {
+      installButton.hidden = true;
+      displayMode = 'standalone-ios';
+   }
+   if (window.matchMedia('(display-mode: standalone)').matches) {
+      installButton.hidden = true;
+      displayMode = 'standalone';
+   }
+   // Log launch display mode to analytics
+   console.log('DISPLAY_MODE_LAUNCH:', displayMode);
+
+   window.matchMedia('(display-mode: standalone)').addListener((evt) => {
+      let displayMode = 'browser tab';
+      installButton.hidden = false;
+
+      if (evt.matches) {
+         installButton.hidden = true;
+         displayMode = 'standalone';
+      }
+      // Log display mode change to analytics
+      console.log('DISPLAY_MODE_CHANGED', displayMode);
+   });
 });
