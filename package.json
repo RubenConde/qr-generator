@@ -4,9 +4,10 @@
       "url": "https://github.com/RubenConde/qr-generator/issues"
    },
    "dependencies": {
-      "fastify": "^3.0.0",
-      "fastify-autoload": "^3.3.1",
+      "fastify": "^3.10.1",
+      "fastify-autoload": "^3.4.0",
       "fastify-cli": "^2.7.0",
+      "fastify-favicon": "^3.0.0",
       "fastify-plugin": "^3.0.0",
       "fastify-static": "^3.4.0",
       "qrcode": "^1.4.4"
@@ -28,7 +29,7 @@
       "url": "git+https://github.com/RubenConde/qr-generator.git"
    },
    "scripts": {
-      "dev": "fastify start -w -l info -P app.js",
+      "dev": "fastify start -w -l info -P -p 9999 app.js",
       "start": "fastify start -l info app.js",
       "test": "tap test/**/*.test.js"
    },

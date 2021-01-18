@@ -2,24 +2,16 @@
 var QRCode = require('qrcode');
 
 module.exports = async function (fastify, opts) {
-   fastify.setNotFoundHandler(function (req, reply) {
-      let possibleUrl = req.url.replace('/', '');
-
-      reply.redirect(`/?url=${possibleUrl}`);
-   });
-
-   fastify.get('/', handler);
-
-   fastify.get('/:textToQR', handler);
-
    async function handler(request, reply) {
-      if (request.params.textToQR === 'serviceWorker.js') return reply.sendFile('serviceWorker.js');
       let valueToQR = null;
 
-      if (Object.keys(request.query).length > 0) valueToQR = request.query.url;
-      else if (request.params.textToQR != null) valueToQR = request.params.textToQR;
-      else if (valueToQR === null) {
-         return reply.sendFile('index.html'); // serving path.join(__dirname, 'html', 'myHtml.html') directly
+      switch (request.url) {
+         case '/PNbx1G0T1yqRGYnhspC3POKCpPE1Hbcm':
+            return reply.sendFile('serviceWorker.js');
+         default:
+            if (request.url !== '/') valueToQR = request.url.replace('/', '');
+            else return reply.sendFile('index.html');
+            break;
       }
 
       const qrBuffer = await QRCode.toBuffer(`${valueToQR}`, {
@@ -30,6 +22,9 @@ module.exports = async function (fastify, opts) {
 
       reply.type('image/png'); // if you don't set the content, the image would be downloaded by browser instead of viewed
       reply.send(qrBuffer);
-      // return { root: true };
    }
+
+   fastify.get('/', handler);
+
+   fastify.setNotFoundHandler(handler);
 };
