@@ -30,7 +30,7 @@
    },
    "scripts": {
       "dev": "fastify start -w -l info -P -p 9999 app.js",
-      "start": "fastify start -l info -p 1000 app.js",
+      "start": "fastify start -l info -p 3000 app.js",
       "test": "tap test/**/*.test.js"
    },
    "version": "1.0.0"
